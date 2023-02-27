@@ -23,11 +23,12 @@ export class AddEmployeeComponent  implements OnInit{
   };
   constructor(private employeeService : EmployeesService,private router : Router ){}
   ngOnInit(): void {
+    // demo
   }
 
   addEmployee()
   {
-
+ 
     this.employeeService.addEmployee(this.addEmployeeRequest)
     .subscribe({
       next:(employee)=>
