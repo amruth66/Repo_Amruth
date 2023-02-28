@@ -23,6 +23,7 @@ export class AddEmployeeComponent  implements OnInit{
   };
   constructor(private employeeService : EmployeesService,private router : Router ){}
   ngOnInit(): void {
+    
   }
 
   addEmployee()
@@ -35,9 +36,8 @@ export class AddEmployeeComponent  implements OnInit{
         this.router.navigate(['employees']);
       }
     });
-
-
   }
+
 
 
 }
