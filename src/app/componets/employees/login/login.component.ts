@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,18 +20,27 @@ export class LoginComponent implements OnInit{
     })
     throw new Error('Method not implemented.');
   }
-
+  user:User={
+    Id:0,
+    FirstName:'',
+    LastName:'',
+    UserName:'',
+    Password:'',
+    Email:'',
+    Role:''
+  }
   onLogin(){
-    this.auth.login(this.loginForm.value)
+    this.user.UserName=this.loginForm.get('username')?.value;
+    this.user.Password=this.loginForm.get('password')?.value;
+    this.auth.login(this.user)
     .subscribe({
       next:(res)=>{
         alert(res.message);
         this.loginForm.reset();
-        this.route.navigate(['employees']);
+        this.route.navigate(['/home']);
       },
       error:(err)=>{
-        alert(err.error.message)
-
+          alert("User not Found");
       }
     })
   }

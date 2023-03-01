@@ -36,13 +36,24 @@
                      name="salary"
                      [(ngModel)]="employeeDetails.salary">
                   </div>
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <label for="department" class="form-label">Department</label>
                     <input type="text" 
                     class="form-control"
                      id="department"
                      name="department"
                      [(ngModel)]="employeeDetails.department">
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <select id="department" class="form-control" name="department" [(ngModel)]="employeeDetails.department">
+                      <option selected>Choose...</option>
+                      <option>Product Manager</option>
+                      <option>Senior Software Engineer</option>
+                      <option>Intern Software Engineer</option>
+                      <option>Server Enginner</option>
+                      <option>Data Engineer</option>
+                    </select>
                   </div>
                 <button type="button" class="btn btn-primary mr-5"  (click)="updateEmployee(employeeDetails.id)">Edit</button>
                 <!-- <button type="button" class="btn btn-danger" (click)="deleteEmployee(employeeDetails.id)">Delete</button>  -->

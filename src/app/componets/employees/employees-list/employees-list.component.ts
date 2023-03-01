@@ -43,7 +43,7 @@ export class EmployeesListComponent implements OnInit{
     this.employeesService.deleteEmployee(id)
     .subscribe({
       next:(response) => {
-        this.router.navigate(['']);
+        this.router.navigate(['employee']);
       }
     })
   }

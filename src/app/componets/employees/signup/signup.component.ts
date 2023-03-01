@@ -15,9 +15,9 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
 
     this.signUpForm = this.fb.group({
-      firstName : ['',Validators.required],
-      lastName : ['',Validators.required],
-      userName : ['',Validators.required],
+      firstname : ['',Validators.required],
+      lastname : ['',Validators.required],
+      username : ['',Validators.required],
       email : ['',Validators.required],
       password : ['',Validators.required],
     })
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       next:(res)=>{
         alert(res.message)
         this.signUpForm.reset();
-        this.route.navigate(['login']);
+        this.route.navigate(['employees']);
       },
       error:(err)=>{
         alert(err.error.message)
