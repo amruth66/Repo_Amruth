@@ -51,7 +51,6 @@ export class EditEmployeeComponent implements OnInit {
   // }
 
   updateEmployee(id:any){
-    alert("Are you sure to Update ?")
     this.employeeService.updateEmployee(this.employeeDetails.id,this.employeeDetails)
     .subscribe({
       next:(response)=>

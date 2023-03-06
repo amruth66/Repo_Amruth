@@ -37,11 +37,11 @@ export class AddEmployeeComponent  implements OnInit{
   }
   addEmployee()
   {
+    console.log(this.addEmployeeForm);
     this.employeeService.addEmployee(this.addEmployeeRequest)
     .subscribe({
       next:(employee)=>
       {
-        // alert(employee.message);
         this.router.navigate(['home']);
       }
     });
