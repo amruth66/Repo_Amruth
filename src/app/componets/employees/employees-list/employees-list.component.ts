@@ -39,11 +39,11 @@ export class EmployeesListComponent implements OnInit{
 
   }
   deleteEmployee(id:any){
-    alert("Delete??");
+    alert("Are You Sure to Delete??");
     this.employeesService.deleteEmployee(id)
     .subscribe({
       next:(response) => {
-        this.router.navigate(['employee']);
+        this.router.navigate(['home']);
       }
     })
   }

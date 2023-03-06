@@ -27,23 +27,25 @@ export class LoginComponent implements OnInit{
     UserName:'',
     Password:'',
     Email:'',
-    Role:''
   }
-  onLogin(){
-    this.user.UserName=this.loginForm.get('username')?.value;
-    this.user.Password=this.loginForm.get('password')?.value;
-    this.auth.login(this.user)
-    .subscribe({
-      next:(res)=>{
-        alert(res.message);
-        this.loginForm.reset();
-        this.route.navigate(['/home']);
-      },
-      error:(err)=>{
-          alert("User not Found");
-      }
-    })
+  onLogin()
+  {
+    if(this.loginForm.valid)
+    {
+      this.user.UserName=this.loginForm.get('username')?.value;
+      this.user.Password=this.loginForm.get('password')?.value;
+      this.auth.login(this.user)
+      .subscribe({
+        next:(res)=>{
+          alert(res.message);
+          this.loginForm.reset();
+          this.route.navigate(['/home']);
+        },
+        error:(err)=>{
+            alert("User not Found");
+        }
+      })
+    }
   }
-  
 
 }

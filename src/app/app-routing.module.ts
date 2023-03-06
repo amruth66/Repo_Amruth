@@ -21,6 +21,10 @@ const routes: Routes = [
     component:SignupComponent
   },
   {
+    path:'add',
+    component:AddEmployeeComponent
+  },
+  {
     path:'home',component:HeaderComponent,children:[
     {
       path:'',component:EmployeesListComponent
@@ -30,22 +34,15 @@ const routes: Routes = [
       component:AddEmployeeComponent
     },
     {
+      path:'back',
+      component:EmployeesListComponent
+    },
+    {
       path:'edit/:id',
       component:EditEmployeeComponent
     }]
   }
-  // {
-  //   path:'employees',
-  //   component:EmployeesListComponent
-  // },
-  // {
-  //   path:'employees/add',
-  //   component:AddEmployeeComponent
-  // },
-  // {
-  //   path:'employees/edit/:id',
-  //   component:EditEmployeeComponent
-  // },
+
 ];
 
 @NgModule({

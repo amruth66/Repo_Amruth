@@ -35,15 +35,14 @@ export class AddEmployeeComponent  implements OnInit{
     })
     
   }
-
   addEmployee()
   {
-    // console.log(this.addEmployeeRequest);
     this.employeeService.addEmployee(this.addEmployeeRequest)
     .subscribe({
       next:(employee)=>
       {
-        this.router.navigate(['employees']);
+        // alert(employee.message);
+        this.router.navigate(['home']);
       }
     });
   }

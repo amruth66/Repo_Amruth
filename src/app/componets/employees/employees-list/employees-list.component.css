@@ -1,0 +1,10 @@
+.table{
+   border: 0.5px; 
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+tr:hover{
+    background-color: lightgreen;
+}

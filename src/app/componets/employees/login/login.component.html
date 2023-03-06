@@ -1,34 +1,44 @@
-<div class="outer">
-    <div class="container">
-        <div class="row">
-            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
-                <div class="panel botrder bg-white">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <h3 class="pt-3 font-weight-bold">Login</h3>
-                    </div>
-                    <div class="panel-body p-3">
-                        <form [formGroup]="loginForm">
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <input formControlName="username" type="text" placeholder="Username">
-                                </div>
+                        <div class="panel-title">Log In</div>
+                    </div>     
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>        
+                        <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onLogin()">            
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" formControlName="username" class="form-control" id="username" placeholder="Enter User Name" name="username">                                        
                             </div>
                             <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username') " class="text-danger">*Username is Required</small>
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <input formControlName="password" type="password" placeholder="Password">    
-                                </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter password" name="password">
                             </div>
                             <small class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password is Required</small>
-                            <div class="form-inline f mt-5">
-                                <a id="forget" class="font-weight-bold">Forget Password ?</a>
+                            <div style="margin-top:10px" class="form-group">
+                                <div class="col-sm-12 controls">
+                                  <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success">Login</button>
+                                </div>
                             </div>
-                            <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-5 w-100">Login</button>
-                            <div class="text-center pt-4 text-muted">Don't Have Account ? <a id="forget" routerLink="/signup">Signup</a></div>
-                        </form>
-                    </div>
-                </div>
-            </div>            
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                        Don't Have An Account?
+                                        <a routerLink="/signup">SignUp Here</a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </form>     
+                    </div>                     
+            </div>  
         </div>
     </div>
-</div> 
+        
+                    
+                 
+    

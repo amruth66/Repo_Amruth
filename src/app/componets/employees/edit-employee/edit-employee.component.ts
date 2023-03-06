@@ -27,7 +27,6 @@ export class EditEmployeeComponent implements OnInit {
     this.route.paramMap.subscribe({
       next:(params)=>{
         const id = params.get('id');
-
         if(id)
         {
             this.employeeService.getEmployee(id)
@@ -52,11 +51,12 @@ export class EditEmployeeComponent implements OnInit {
   // }
 
   updateEmployee(id:any){
+    alert("Are you sure to Update ?")
     this.employeeService.updateEmployee(this.employeeDetails.id,this.employeeDetails)
     .subscribe({
       next:(response)=>
       {
-        this.router.navigate(['employees']);
+        this.router.navigate(['home']);
       }
     })
   }

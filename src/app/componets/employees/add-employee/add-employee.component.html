@@ -3,8 +3,8 @@
 
     <div class="row">
         <div clss="col-6">
-            <form #form="ngForm" (ngSubmit)="addEmployee()" [formGroup]="addEmployeeForm" >
-                <div class="mb-3">
+            <form #form="ngForm" [formGroup]="addEmployeeForm" class="form" >
+                <div class="form-outline w-25 mb-3" >
                   <label for="name" class="form-label">Name</label>
                   <input type="text" 
                   class="form-control"
@@ -14,7 +14,35 @@
                    [(ngModel)]="addEmployeeRequest.name">
                 </div>
                 <small *ngIf="addEmployeeForm.controls['name'].dirty && addEmployeeForm.hasError('required','name') " class="text-danger">*Name is Required</small>
-                <div class="mb-3">
+<!--                 
+                <div class="form-outline w-25 mb-3 row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="name" class="col-form-label">Name</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="text" id="name" class="form-control" formControlName="name"
+                    [(ngModel)]="addEmployeeRequest.name" aria-describedby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                    <span *ngIf="addEmployeeForm.controls['name'].dirty && addEmployeeForm.hasError('required','name')" class="text-danger">*Name is Required</span>
+                  </div>
+                </div> -->
+
+                <!-- <div class="form-outline w-25 mb-3 row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="email" class="col-form-label">Email</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="email" id="email" class="form-control" formControlName="email"
+                    [(ngModel)]="addEmployeeRequest.email">
+                  </div>
+                  <div class="col-auto">
+                    <span *ngIf="addEmployeeForm.controls['email'].dirty && addEmployeeForm.hasError('required','email')" class="text-danger">*Email is Required</span>
+                  </div>
+                </div> -->
+
+
+                <div class="form-outline w-25 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" 
                     class="form-control"
@@ -25,7 +53,24 @@
                 </div>
                 <small *ngIf="addEmployeeForm.controls['email'].dirty && addEmployeeForm.hasError('required','email') " class="text-danger">*Email is Required</small>
 
-                <div class="mb-3">
+                <!-- <div class="form-outline w-25 mb-3 row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="phone" class="col-form-label">Phone</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="number"
+                     class="form-control" 
+                     id="phone"
+                     name="phone"
+                     formControlName="phone"
+                     [(ngModel)]="addEmployeeRequest.phone">
+                  </div>
+                  <div class="col-auto">
+                    <span  *ngIf="addEmployeeForm.controls['phone'].dirty && addEmployeeForm.hasError('required','phone') " class="text-danger">*Phone Number is Required</span>
+                  </div>
+                </div> -->
+
+                <div class="form-outline w-25 mb-3">
                     <label for="phone" class="form-label">Phone</label>
                     <input type="number"
                      class="form-control" 
@@ -35,9 +80,27 @@
                      [(ngModel)]="addEmployeeRequest.phone">
                   </div>
                   <small *ngIf="addEmployeeForm.controls['phone'].dirty && addEmployeeForm.hasError('required','phone') " class="text-danger">*Phone Number is Required</small>
-                  <!-- <small *ngIf="(addEmployeeForm.controls['phone'].errors.pattern || (addEmployeeForm.controls['phone'].invalid && (addEmployeeForm.controls['phone'].dirty || addEmployeeForm.controls['phone'].touched))" class="text-danger">*Valid Phone Number is Required</small> -->
-                  <!-- <small class="text-danger" *ngIf="addEmployeeForm.controls['phone'].errors.pattern" >*Valid Phone Number is Required</small> -->
-                  <div class="mb-3">
+<!-- 
+                  <div class="form-outline w-25 mb-3 row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="salary" class="col-form-label">Salary</label>
+                    </div>
+                    <div class="col-auto">
+                      <input type="number" 
+                    class="form-control"
+                     id="salary"
+                     name="salary"
+                     formControlName="salary"
+                     [(ngModel)]="addEmployeeRequest.salary">
+                      
+                    </div>
+                    <div class="col-auto">
+                      <span *ngIf="addEmployeeForm.controls['salary'].dirty && addEmployeeForm.hasError('required','salary')" class="text-danger">*Salary is Required</span>
+                    </div>
+                  </div> -->
+
+
+                  <div class="form-outline w-25 mb-3">
                     <label for="salary" class="form-label">Salary</label>
                     <input type="number" 
                     class="form-control"
@@ -47,7 +110,32 @@
                      [(ngModel)]="addEmployeeRequest.salary">
                   </div>
                   <small *ngIf="addEmployeeForm.controls['salary'].dirty && addEmployeeForm.hasError('required','salary')" class="text-danger">*Salary is Required</small>
-                  <div class="form-group mb-3">
+
+                  <!-- <div class="form-outline w-25 mb-3 row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="department" class="form-label">Department</label>
+                    </div>
+                    <div class="col-auto">
+                      <select id="department" class="form-control" name="department" formControlName="department"
+                    [(ngModel)]="addEmployeeRequest.department">
+                      <option selected>Choose...</option>
+                      <option>Product Manager</option>
+                      <option>Senior Software Engineer</option>
+                      <option>Intern Software Engineer</option>
+                      <option>Server Enginner</option>
+                      <option>Data Engineer</option>
+                    </select>
+                      
+                    </div>
+                    <div class="col-auto">
+                      <span *ngIf="addEmployeeForm.controls['department'].dirty && addEmployeeForm.hasError('required','department') " class="text-danger">*Department is Required </span>
+                    </div>
+                  </div> 
+                  <div>
+                    <button type="submit" class="btn btn-success" (click)="addEmployee()">Save Employee</button>
+                  </div> -->
+
+                  <div class="form-outline w-25 form-group mb-3">
                     <label for="department" class="form-label">Department</label>
                     <select id="department" class="form-control" name="department" formControlName="department"
                     [(ngModel)]="addEmployeeRequest.department">
@@ -60,8 +148,9 @@
                     </select>
                   </div>
                   <small *ngIf="addEmployeeForm.controls['department'].dirty && addEmployeeForm.hasError('required','department') " class="text-danger">*Department is Required</small>
+
                   <div>
-                    <button type="submit" class="btn btn-primary">Save Employee</button>
+                    <button type="submit" class="btn btn-success" (click)="addEmployee()">Save Employee</button>
                   </div>
             </form>
         </div>
