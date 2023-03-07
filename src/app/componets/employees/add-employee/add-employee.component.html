@@ -14,6 +14,7 @@
                    [(ngModel)]="addEmployeeRequest.name">
                 </div>
                 <small *ngIf="addEmployeeForm.controls['name'].dirty && addEmployeeForm.hasError('required','name') " class="text-danger">*Name is Required</small>
+
                 <div class="form-outline w-25 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" 
@@ -24,6 +25,7 @@
                      [(ngModel)]="addEmployeeRequest.email">
                 </div>
                 <small *ngIf="addEmployeeForm.controls['email'].dirty && addEmployeeForm.hasError('required','email') " class="text-danger">*Email is Required</small>
+
                 <div class="form-outline w-25 mb-3">
                     <label for="phone" class="form-label">Phone</label>
                     <input type="number"
@@ -34,6 +36,7 @@
                      [(ngModel)]="addEmployeeRequest.phone">
                   </div>
                   <small *ngIf="addEmployeeForm.controls['phone'].dirty && addEmployeeForm.hasError('required','phone') " class="text-danger">*Phone Number is Required</small>
+
                   <div class="form-outline w-25 mb-3">
                     <label for="salary" class="form-label">Salary</label>
                     <input type="number" 
@@ -43,7 +46,9 @@
                      formControlName="salary"
                      [(ngModel)]="addEmployeeRequest.salary">
                   </div>
+                  
                   <small *ngIf="addEmployeeForm.controls['salary'].dirty && addEmployeeForm.hasError('required','salary')" class="text-danger">*Salary is Required</small>
+
                   <div class="form-outline w-25 form-group mb-3">
                     <label for="department" class="form-label">Department</label>
                     <select id="department" class="form-control" name="department" formControlName="department"
@@ -57,9 +62,11 @@
                     </select>
                   </div>
                   <small *ngIf="addEmployeeForm.controls['department'].dirty && addEmployeeForm.hasError('required','department') " class="text-danger">*Department is Required</small>
+
                   <div>
                     <button type="submit" class="btn btn-success" (click)="addEmployee()">Save Employee</button>
                   </div>
+                  
             </form>
         </div>
     </div>  
